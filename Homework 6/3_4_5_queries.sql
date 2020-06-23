@@ -1,23 +1,21 @@
 USE vk;
 
 -- 3. Подсчитать общее количество лайков десяти самым молодым пользователям (сколько лайков получили 10 самых молодых пользователей).
-SELECT name,
-       age
-FROM
-  (SELECT user_id,
-
-     (SELECT CONCAT(first_name, ' ', last_name)
-      FROM users
-      WHERE users.id = likes.user_id) name,
-
-     (SELECT TIMESTAMPDIFF(YEAR, birthday, NOW())
-      FROM profiles
-      WHERE profiles.user_id = likes.user_id) age
-   FROM likes
-   WHERE target_type_id = 2) AS query_likes
-GROUP BY name
-ORDER BY age
-LIMIT 10;
+SELECT target_id,
+       count(*) AS likes_count,
+       (SELECT CONCAT(first_name, ' ', last_name)
+       FROM users
+       WHERE users.id = likes.user_id) AS name
+FROM likes
+WHERE target_type_id = 2
+  AND target_id IN
+    (SELECT *
+     FROM
+       (SELECT user_id
+        FROM profiles
+        ORDER BY TIMESTAMPDIFF(YEAR, birthday, NOW())
+        LIMIT 10) AS youngest)
+GROUP BY target_id
 
 
 -- 4. Определить кто больше поставил лайков (всего) - мужчины или женщины?
