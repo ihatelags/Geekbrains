@@ -5,14 +5,21 @@
 """
 import random
 a = [random.randint(-100,10) for _ in range(20)]
-b = [random.randint(-2,20) for _ in range(20)]
+b = [random.randint(-10,20) for _ in range(20)]
 
-def max_negative(list):
-    number = 0
-    for element in list:
-        if element < number:
-            number = element
-    return number if number < 0 else None
+def max_negative(array):
+	i = 0
+	index = -1
+	for i in range(len(array)):
+		if array[i] < 0 and index == -1:
+			index = i
+		elif 0 > array[i] > array[index]:
+			index = i
+		i += 1
+
+	return array[index] if index != -1 else None
+
+
 
 print(a)
 print("Для массива a максимальный отрицательный элемент: {}\n".format(max_negative(a)))
