@@ -11,7 +11,7 @@
 """
 
 """"
-Решето эратосфена выполняется быстрее
+Функция с использоваием решета эратосфена выполняется значительно быстрее
 """
 
 import cProfile
@@ -50,13 +50,14 @@ print(_timeit('sieve(1000)'))
 # 1.14418
 
 #cProfile.run('sieve(1000)')
-# 4822 function calls in 0.104 seconds
+# 28 function calls in 0.010 seconds
 # ncalls  tottime  percall  cumtime  percall filename:lineno(function)
-#     1    0.000    0.000    0.104    0.104 <string>:1(<module>)
-#     1    0.103    0.103    0.104    0.104 Lesson4_task2.py:57(prime)
-#     1    0.000    0.000    0.104    0.104 {built-in method builtins.exec}
+#     1    0.000    0.000    0.010    0.010 <string>:1(<module>)
+#     1    0.008    0.008    0.010    0.010 Lesson4_task2.py:23(sieve)
+#     8    0.001    0.000    0.001    0.000 Lesson4_task2.py:26(<listcomp>)
+#     8    0.001    0.000    0.001    0.000 Lesson4_task2.py:34(<listcomp>)
+#     1    0.000    0.000    0.010    0.010 {built-in method builtins.exec}
 #     8    0.000    0.000    0.000    0.000 {built-in method builtins.len}
-#  4810    0.000    0.000    0.000    0.000 {method 'append' of 'list' objects}
 #     1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
 
 def prime(n):
