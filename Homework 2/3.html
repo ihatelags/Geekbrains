@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-3</title>
+</head>
+<body>
+    <script>
+        "use strict";
+        
+        /* Объявить две переменные a и b и задать им целочисленные произвольные начальные значения. 
+        Затем написать скрипт, который работает по следующему принципу: 
+        - если a и b положительные, вывести их разность (ноль можно считать положительным числом); 
+        - если а и b отрицательные, вывести их произведение; 
+        - * (этот пункт по сложнее, делайте по желанию) если а и b разных знаков, вывести их сумму;
+        */
+	
+	/*
+        let a = Number(prompt("введите первое целое число"));
+        let b = Number(prompt("введите второе целое число"));
+        if (Number.isInteger(a) == false || Number.isInteger(b) == false) {
+            alert("Нужно было ввести 2 целых числа");
+	*/
+		
+	let a = Math.floor(Math.random() * (10 - -10 +1)) + -10;
+	console.log(a);
+	let b = Math.floor(Math.random() * (10 - -10 +1)) + -10;
+	console.log(b);
+        if (a >= 0 && b >= 0) {
+            alert(a - b);
+        } else if (a < 0 && b < 0) {
+            alert(a * b);
+        } else if ((a != 0 || b != 0) && (Math.sign(a) != Math.sign(b))) {
+            alert(a + b);			
+        } else {
+        alert(a + b);
+        }
+    </script>
+</body>
+</html>
