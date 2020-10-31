@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="menu"></div>
+
+    <!-- Задание. Добавьте в div с классом .menu следующую разметку:
+    <a href="#">link</a>
+    используя метод insertAdjacentHTML.
+    -->
+
+    <script>
+        "use strict";
+        
+        let var_menu = document.querySelector('.menu');
+        var_menu.insertAdjacentHTML("afterbegin", '<a href="#">link</a>');
+        console.log(var_menu);
+
+    </script>
+</body>
+</html>
