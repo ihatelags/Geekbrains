@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-4</title>
+</head>
+<body>
+    <script>
+        "use strict";
+        
+        /* Реализовать основные 4 арифметические операции (+, -, /, *) в виде функций 
+        с двумя параметрами. Т.е. например, функция для сложения должна принимать 
+        два числа, складывать их и возвращать результат. 
+        Обязательно использовать оператор return. 
+        */
+        function summ(a, b) {
+            return a + b
+        }
+
+        function sub(a, b) {
+            return a - b
+        }        
+        
+        function mult(a, b) {
+            return a * b
+        }        
+        
+        function div(a, b) {
+            if (b != 0) {
+                return a / b
+            } else {
+                return "делитель не должен равняться 0"
+            }
+        }
+	
+	let x = 5;
+	let y = 4;
+        alert(summ(x, y));
+        alert(sub(x, y));
+        alert(mult(x, y));
+        alert(div(x, y));
+        alert(div(x, 0));
+
+    </script>
+</body>
+</html>
