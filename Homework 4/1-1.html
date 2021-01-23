@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4-1.1</title>
+</head>
+<body>
+    <script>
+        "use strict";
+
+        /*Сделайте в стиле es5, а затем в стиле es6 (по аналогии из урока), 
+        конструктор Product, который принимает параметры name и price, сохраните 
+        их как свойства объекта. Также объекты типа Product должны иметь 
+        метод make25PercentDiscount, который будет уменьшать цену в объекте на 25%.*/
+
+        function ProductEs5(name, price) {
+            this.name = name;
+            this.price = price;
+        }
+
+        ProductEs5.prototype.make25PercentDiscount = function () {
+            this.price -= this.price * 25 / 100;
+        };
+
+        class ProductEs6 {
+            constructor(name, price) {
+                this.name = name;
+                this.price = price;
+            }
+
+            make25PercentDiscount() {
+                this.price -= this.price * 25 / 100;
+            }
+        }
+
+        let unitEs5 = new ProductEs5('unit5', 500);
+        let unitEs6 = new ProductEs6('unit6', 1000);
+        unitEs5.make25PercentDiscount();
+        unitEs6.make25PercentDiscount();
+        console.log(unitEs5);
+        console.log(unitEs6);
+    </script>
+</body>
+</html>
