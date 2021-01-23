@@ -1,1 +1,1 @@
-# Geekbrains
+# Geekbrains Django learning project
