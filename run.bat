@@ -1,0 +1,1 @@
+python "D:\geekshop-server\geekshop\manage.py" runserver
