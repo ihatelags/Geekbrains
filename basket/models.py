@@ -24,3 +24,4 @@ class Basket(models.Model):
 
     def total_qty(self):
         return sum([basket.quantity for basket in self.total_basket()])
+
