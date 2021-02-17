@@ -6,8 +6,16 @@ app_name = 'adminapp'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('admin-users-read/', views.admin_users_read, name='admin_users_read'),
-    path('admin-users-create/', views.admin_users_create, name='admin_users_create'),
-    path('admin-users-update/<int:id>/', views.admin_users_update, name='admin_users_update'),
-    path('admin-users-delete/<int:id>/', views.admin_users_delete, name='admin_users_delete'),
+    path('admin-users-read/', views.UserListView.as_view(), name='admin_users_read'),
+    path('admin-users-create/', views.UserCreateView.as_view(), name='admin_users_create'),
+    path('admin-users-update/<int:pk>/', views.UserUpdateView.as_view(), name='admin_users_update'),
+    path('admin-users-delete/<int:pk>/', views.UserDeleteView.as_view(), name='admin_users_delete'),
+    path('admin_products_categories/', views.ProductCategoriesView.as_view(),
+         name='admin_products_categories'),
+    path('admin_products_categories/create/', views.ProductCategoriesCreateView.as_view(),
+         name='admin_products_categories_create'),
+    path('admin_products_categories/update/<int:pk>/',
+         views.ProductCategoryUpdateView.as_view(), name='admin_products_categories_update'),
+    path('admin_products_categories/remove/<int:pk>/', views.ProductCategoryDelete.as_view(),
+         name='admin_products_categories_remove'),
 ]

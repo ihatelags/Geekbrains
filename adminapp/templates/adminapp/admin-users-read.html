@@ -33,7 +33,7 @@
                     </tfoot>
                 {% endcomment %}
                     <tbody>
-                    {% for user in users %}
+                    {% for user in object_list %}
                         <tr>
                             <td>
                                 <a href="{% url 'admins:admin_users_update' user.id %}"
