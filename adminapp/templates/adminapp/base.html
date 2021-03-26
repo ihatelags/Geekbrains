@@ -48,23 +48,29 @@
             <div class="sb-sidenav-menu">
                 <div class="nav">
                     <div class="sb-sidenav-menu-heading">Приложения</div>
-                    <a class="nav-link" href="{% url 'admins:admin_users_read' %}">
+                    <a class="nav-link" href="{% url 'adminka:admin_users_read' %}">
                         <div class="sb-nav-link-icon">
                             <i class="fas fa-users"></i>
                         </div>
                         Пользователи
                     </a>
-                    <a class="nav-link" href="{% url 'admins:admin_products_categories' %}">
+                    <a class="nav-link" href="{% url 'adminka:admin_products_categories' %}">
                         <div class="sb-nav-link-icon">
                             <i class="fas fa-shopping-basket"></i>
                         </div>
                         Категории
                     </a>
-                    <a class="nav-link" href="{% url 'admins:admin_users_read' %}">
+                    <a class="nav-link" href="{% url 'adminka:admin_users_read' %}">
                         <div class="sb-nav-link-icon">
                             <i class="fas fa-tshirt"></i>
                         </div>
                         Продукты - не работает
+                    </a>
+                    <a class="nav-link" href="{% url 'adminka:orders' %}">
+                        <div class="sb-nav-link-icon">
+                            <i class="fas fa-tshirt"></i>
+                        </div>
+                        Заказы
                     </a>
                 </div>
             </div>
