@@ -4,6 +4,15 @@ from authapp.models import User
 from mainapp.models import Product
 
 
+class BasketQuerySet(models.QuerySet):
+
+    def delete(self):
+        for obj in self:
+            obj.product.quantity += obj.quantity
+            obj.product.save()
+        super().delete()
+
+
 class Basket(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
@@ -33,23 +42,12 @@ class Basket(models.Model):
     def delete(self):
         self.product.quantity += self.quantity
         self.product.save()
-        super(self.__class__, self).delete()
+        super().delete()
 
     def save(self, *args, **kwargs):
         if self.pk:
-            self.product.quantity -= self.quantity - \
-                                     self.__class__.get_item(self.pk).quantity
+            self.product.quantity -= self.quantity - self.__class__.get_item(self.pk).quantity
         else:
             self.product.quantity -= self.quantity
         self.product.save()
         super(self.__class__, self).save(*args, **kwargs)
-
-
-class BasketQuerySet(models.QuerySet):
-
-   def delete(self, *args, **kwargs):
-       for object in self:
-           object.product.quantity += object.quantity
-           object.product.save()
-       super(BasketQuerySet, self).delete(*args, **kwargs)
-
