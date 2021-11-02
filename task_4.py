@@ -8,11 +8,15 @@
 Подсказки:
 --- используйте списки и циклы, не дублируйте функции
 """
+
+
 def my_encode(data):
     return [i.encode('utf-8') for i in data]
 
+
 def my_decode(data):
     return [i.decode('utf-8') for i in data]
+
 
 data = ['paзpaбoткa', 'aдминиcтpиpoвaниe', 'protocol', 'standard']
 

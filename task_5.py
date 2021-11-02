@@ -11,13 +11,15 @@
 from subprocess import Popen, PIPE
 from chardet import detect
 
-def ping(URL):
-    args = ['ping','-n','1', URL]
+
+def ping(url):
+    args = ['ping', '-n', '1', url]
     ping = Popen(args, stdout=PIPE)
     for line in ping.stdout:
         detect_chars = detect(line)['encoding']
         line = line.decode(detect_chars).encode('utf-8')
         print(line.decode('utf-8'))
+
 
 ping('yandex.ru')
 ping('youtube.com')

@@ -9,15 +9,17 @@
 --- обязательно!!! усложните задачу, "отловив" и обработав исключение,
 придумайте как это сделать
 """
-def ToBytes(data):
+
+
+def to_bytes(data):
     for each in data:
         try:
             print(f'Успешно записано в байтовом типе слово "{each}", результат -', eval(f"b'{each}'"), type(eval(f"b'{each}'")))
         except Exception as e:
-           	   print(f'Слово "{each}" невозможно записать в байтовом типе по причине: "{e}"')
+            print(f'Слово "{each}" невозможно записать в байтовом типе по причине: "{e}"')
     print()
 
 
 data = ['attribute', 'класс', 'функция', 'type']
 
-ToBytes(data)
+to_bytes(data)

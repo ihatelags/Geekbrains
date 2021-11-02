@@ -28,17 +28,19 @@ from chardet import detect
 
 # открываем файл
 with open('test_file.txt', 'rb') as file:
-    content = file.read()
+    content_bytes = file.read()
 
 # узнаем кодировку файла
-file_encoding = detect(content)['encoding']
+file_encoding = detect(content_bytes)['encoding']
 print(f'Файл был сохранен в кодировке: {file_encoding}')
 
-# переводим текст в юникод
-text = content.decode(file_encoding).encode('utf-8')
-print(text.decode('utf-8'))
+# перезаписываем файл в юникоде
+text = content_bytes.decode(file_encoding)
+with open('test_file.txt', 'w', encoding='utf-8') as file:
+    file.write(text)
 
-#либо читаем файл в правильной кодировке
-with open('test_file.txt', 'r', encoding=file_encoding) as file:
+# проверяем
+with open('test_file.txt', 'r') as file:
     content = file.read()
 
+print(content)
